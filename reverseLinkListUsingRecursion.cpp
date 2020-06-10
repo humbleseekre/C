@@ -10,8 +10,8 @@
 #include <iostream>
 
 using namespace std;
-/Users/neil/Programming/linkedlist/linkedlist/singleLinkList.hpp
-void reverseLinkListRecursionP/Users/neil/Programming/linkedlist/linkedlist/reverseLinkListUsingRecursion.hpprint(ll *head)
+
+void reverseLinkListRecursionPrint(ll *head)
 {
     if(head == NULL)
     {
