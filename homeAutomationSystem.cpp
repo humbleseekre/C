@@ -1,3 +1,10 @@
+/*
+Design a home automation sytem to remotely control all the switches, devices in a home.
+
+You are required to provide a low level design (define data models and interaction between them) for
+a home automation system wherein a user can control (turn on/off) all switches in a house. 
+The design should be scalable and flexible.
+*/
 public interface Device {
 public abstract void turnOn();
 public abstract void turnOff();
