@@ -31,3 +31,69 @@ int main(){
   cout << testNum1 +" + 1 = " << hexSum(testNum1) << "\n";
   return 0;
 }
+
+
+======================================Varun's implementation========================================================================
+/* Given a hex string, you have to add 1 to the string and return the result */
+// 0xAB -> 0xAC
+
+// Brute Force 
+1) Convert the string into decimal, add 1 and convert it back to hex and return.
+
+char* addOneToHexVal(char* input)
+{
+		int len = strlen(input);
+    
+    // Define your output string. 
+    char* output = (char *)malloc(sizeof(output) * (len + 2));
+    
+    int carry = 1;		
+    int in_index = len - 1;
+    int out_index = len;
+    
+    while(in_index >= 0)
+    {
+    		if(input[in_index] == '9')
+        {
+        		if(carry == 1)
+            {
+            		output[out_index] = 'A';
+                carry = 0;
+            }
+            else
+            		output[out_index] = input[in_index];
+        }
+        else if(input[in_index] == 'F')
+        {
+        		if(carry == 1)
+            {
+            		output[out_index] = '0'
+                carry = 1;
+            }
+            else
+            		output[out_index] = input[in_index];
+        }
+        else
+        {
+        		if(carry == 1)
+            {
+             		output[out_index] = input[in_index] + 1;
+                carry = 0;
+            }
+            else
+            		output[out_index] = input[in_index];        
+        }
+        in_index--;
+        out_index--;
+    }   
+    output[len+2] = '\0';
+    
+    if(carry == 0)
+    	return ouput+1;
+    else
+    {
+    	output[0] = '1';
+    	return output;    
+    }
+}
+
