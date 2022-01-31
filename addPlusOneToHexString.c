@@ -97,3 +97,49 @@ char* addOneToHexVal(char* input)
     }
 }
 
+/*=========================================My another implementation======================================================*/
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+string addPlusOne(string s){
+    string res;
+    if(s.empty()){
+        return res;
+    }
+    int add = 1;
+    int carry = 0;
+    for(int i= s.length()-1; i >= 0; --i){
+        char ch = s[i];
+        if(ch == 'f' || ch == 'F'){
+            if(carry || add){
+                res += 'O';
+                carry = 1;
+            }
+            else{
+                res += ch;
+            }
+        }
+        else{
+            res += ch + carry + add;
+            carry = 0;
+        }
+        add = 0;
+    }
+    if(carry){
+        res += (carry + '0');
+    }
+    reverse(begin(res), end(res));
+    return res;
+}
+
+int main()
+{
+    string str("ABF");
+    cout << addPlusOne(str) << " " << endl;
+    return 0;
+}
+
+
